@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     Transform laserCanon;
     [SerializeField]
-    [Range(1.0f, 2.0f)]
+    [Range(0.0f, 2.0f)]
     float coolDown = 1f;
     float buffer = 0f;
 

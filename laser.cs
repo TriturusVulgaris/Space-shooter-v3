@@ -18,6 +18,13 @@ public class laser : MonoBehaviour {
         body.velocity = new Vector3(0f, 0f, speed);
     }
 
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.transform.tag == "Enemy") {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Killzone") {
             Destroy(gameObject);
