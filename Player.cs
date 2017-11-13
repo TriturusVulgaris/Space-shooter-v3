@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    [Header("Move function")]
+
     [SerializeField]
     Rigidbody body;
     [SerializeField]
+    [Range(1.0f, 20.0f)]
     float speed = 10f;
+
+    [Header("Fire function")]
+
+    [SerializeField]
+    GameObject laserBullet;
+    [SerializeField]
+    Transform laserCanon;
 
     // Use this for initialization
     void Awake ()
@@ -26,6 +36,15 @@ public class Player : MonoBehaviour {
         {
             move = new Vector3(Input.GetAxis("Horizontal") * speed, 0f, Input.GetAxis("Vertical") * speed);
         }
+        else
+        {
+            move = Vector3.zero;
+        }
+
+        if (Input.GetButtonDown("Fire1")) {
+            Instantiate(laserBullet, laserCanon.position, laserCanon.rotation);
+        }
+
     }
 
     
