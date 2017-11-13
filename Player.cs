@@ -60,4 +60,12 @@ public class Player : MonoBehaviour {
     {
         body.velocity = move;
     }
+
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.transform.tag == "Enemy") {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            Debug.Log("Game Over !");
+        }
+    }
 }
