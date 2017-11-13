@@ -11,6 +11,8 @@ public class laser : MonoBehaviour {
     [Range(1f, 15f)]
     float speed = 10f;
 
+    [SerializeField]
+    GameObject explosion;
 
     // Use this for initialization
     void Awake() {
@@ -22,6 +24,7 @@ public class laser : MonoBehaviour {
         if(collision.transform.tag == "Enemy") {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            Instantiate(explosion, body.position, body.rotation);
         }
     }
 
