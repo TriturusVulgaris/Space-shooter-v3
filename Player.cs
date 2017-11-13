@@ -24,8 +24,7 @@ public class Player : MonoBehaviour {
     float buffer = 0f;
 
     // Use this for initialization
-    void Awake ()
-    {
+    void Awake () {
         if (!body) body = GetComponent<Rigidbody>();
     }
 
